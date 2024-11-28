@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Υπολογιστής Πολλαπλασιαστών</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Υπολογιστής Πολλαπλασιαστών</h1>
+
+    <!-- Input Field -->
+    <label for="inputNumber">Εισάγετε έναν αριθμό:</label>
+    <input type="number" id="inputNumber" placeholder="Εισάγετε έναν αριθμό" required>
+
+    <!-- First set of buttons (Initial multipliers) -->
+    <h2>Πολλαπλασιάστε με:</h2>
+    <button onclick="applyInitialMultiplier(1.06)">× 1.06</button>
+    <button onclick="applyInitialMultiplier(1.13)">× 1.13</button>
+    <button onclick="applyInitialMultiplier(1.24)">× 1.24</button>
+
+    <!-- Second set of buttons (Final multipliers) -->
+    <h3>Στη συνέχεια πολλαπλασιάστε με:</h3>
+    <button onclick="applyFinalMultiplier(1.20)">× 1.20</button>
+    <button onclick="applyFinalMultiplier(1.25)">× 1.25</button>
+    <button onclick="applyFinalMultiplier(1.30)">× 1.30</button>
+    <button onclick="applyFinalMultiplier(1.35)">× 1.35</button>
+    <button onclick="applyFinalMultiplier(1.40)">× 1.40</button>
+    <button onclick="applyFinalMultiplier(1.45)">× 1.45</button>
+
+    <!-- Display Result -->
+    <h2>Τελικό Αποτέλεσμα:</h2>
+    <p id="result"></p>
+
+    <!-- Clear Button -->
+    <button onclick="clearInput()">Εκκαθάριση</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
