@@ -1,3 +1,4 @@
+/* Base styles */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -8,29 +9,30 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #f4f4f4; /* Light gray background */
+    overflow: hidden; /* Prevent scrolling */
 }
 
 /* Container for the calculator */
 .calculator {
-    width: 320px; /* Slightly larger container width for better spacing */
-    padding: 20px;
+    width: 280px; /* Slightly smaller container width for better spacing */
+    padding: 15px;
     background-color: #fff;
-    border-radius: 10px; /* Rounded corners for the container */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 /* Main header */
 h1 {
-    font-size: 1.8em;
-    margin-bottom: 20px;
-    color: #333; /* Darker header color */
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #333;
 }
 
 /* Input field for numbers */
 #display {
-    font-size: 2em; /* Larger text for the current input */
-    margin-bottom: 20px;
+    font-size: 2.2em; /* Slightly smaller font size */
+    margin-bottom: 15px;
     padding: 10px;
     background-color: #e9e9e9;
     border-radius: 5px;
@@ -39,11 +41,11 @@ h1 {
 
 /* Button styling */
 button {
-    background-color: #4CAF50; /* Green background */
-    color: white; /* White text */
-    margin: 5px;
-    padding: 15px 20px; /* Larger padding for better clickability */
-    font-size: 16px; /* Larger font size for readability */
+    background-color: #4CAF50;
+    color: white;
+    margin: 4px;
+    padding: 12px 16px; /* Adjusted padding */
+    font-size: 14px; /* Slightly smaller font size */
     cursor: pointer;
     border: none;
     border-radius: 5px;
@@ -52,17 +54,17 @@ button {
 
 /* Button hover effect */
 button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049;
 }
 
 /* Button active effect */
 button:active {
-    background-color: #3e8e41; /* Even darker green on button press */
+    background-color: #3e8e41;
 }
 
 /* Focused button state */
 button:focus {
-    outline: none; /* Remove outline on button focus */
+    outline: none;
 }
 
 /* Flexbox for buttons to keep them aligned */
@@ -76,14 +78,14 @@ button:focus {
 .row {
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px; /* Reduced margin */
 }
 
-/* Style adjustments to make the buttons in each row smaller and closer */
+/* Style adjustments to make the buttons smaller and closer */
 .row button {
-    width: 60px;
-    height: 60px;
-    margin: 2px; /* Smaller margin to make the buttons closer */
+    width: 55px;
+    height: 55px;
+    margin: 3px; /* Reduced margin for smaller gaps */
 }
 
 /* Multipliers styling for ΦΠΑ (light blue) */
@@ -91,7 +93,7 @@ button:focus {
 .multipliers button:nth-child(2),
 .multipliers button:nth-child(3) {
     background-color: #A0D8FF; /* Light blue color */
-    color: black; /* Text color black */
+    color: black;
 }
 
 /* Profit multipliers (light red) */
@@ -102,59 +104,104 @@ button:focus {
 .multipliers button:nth-child(8),
 .multipliers button:nth-child(9) {
     background-color: #F7C2C0; /* Light red color */
-    color: black; /* Text color black */
+    color: black;
 }
 
 /* Error message */
 #errorMessage {
     color: red;
-    font-size: 1em;
+    font-size: 0.9em; /* Smaller font size */
     margin-top: 10px;
 }
 
 /* Divider line between sections */
 .divider {
-    height: 3px; /* Increase height for a thicker line */
-    background-color: #4CAF50; /* Green color for the line */
-    margin: 20px 0;
-    border-radius: 2px; /* Optional: Round the edges of the divider for a softer look */
+    height: 3px;
+    background-color: #4CAF50;
+    margin: 5px 0; /* Significantly reduced margin */
+    border-radius: 2px;
 }
 
 /* Final result (after ΚΕΡΔΟΥΣ) */
 #finalResult {
-    color: red; /* Red color for the text */
-    font-size: 1.6em;
-    font-weight: bold; /* Make the text bold */
-    margin-top: 20px;
+    color: red;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-top: 15px;
 }
 
 /* Intermediate result (ΦΠΑ) */
 #intermediateResult {
-    font-size: 1.2em;
-    margin-top: 20px;
-    color: #333; /* Dark color for intermediate result */
+    font-size: 1.1em;
+    margin-top: 15px;
+    color: #333;
 }
 
 /* Specific styling for the CLEAR button */
 button.clear {
-    background-color: #2F4F4F; /* Very dark green */
-    color: white; /* White text */
-    font-size: 16px; /* Adjust font size for better readability */
-    font-weight: bold; /* Make the text bold */
-    padding: 15px 20px; /* Ensures the button is large enough for the text */
-    width: auto; /* Allow the width to adjust based on content */
-    text-align: center; /* Center-align the text */
-    border-radius: 5px; /* Rounded corners */
-    border: none; /* Remove default button border */
-    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+    background-color: #2F4F4F;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 16px;
+    width: auto;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
 }
 
 /* CLEAR button hover effect */
 button.clear:hover {
-    background-color: #36494D; /* Darker shade when hovered */
+    background-color: #36494D;
 }
 
 /* CLEAR button active effect */
 button.clear:active {
-    background-color: #2B3535; /* Even darker green on button press */
+    background-color: #2B3535;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 480px) {
+    .calculator {
+        width: 90%; /* Use most of the screen width */
+        padding: 10px;
+    }
+
+    /* Reduce the font size of the display */
+    #display {
+        font-size: 1.8em;
+    }
+
+    /* Adjust button sizes */
+    .row button {
+        width: 50px;
+        height: 50px;
+        margin: 3px;
+    }
+
+    button {
+        padding: 10px 14px; /* Slightly smaller padding */
+        font-size: 14px;
+    }
+
+    /* Smaller header */
+    h1 {
+        font-size: 1.4em;
+    }
+
+    /* Error message */
+    #errorMessage {
+        font-size: 0.8em; /* Make error message font smaller */
+    }
+
+    /* Final result */
+    #finalResult {
+        font-size: 1.4em;
+    }
+
+    /* Intermediate result */
+    #intermediateResult {
+        font-size: 1em;
+    }
 }
