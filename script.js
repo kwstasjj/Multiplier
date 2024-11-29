@@ -83,6 +83,25 @@ function applyInitialMultiplier(multiplier) {
 
 // Function to apply final multiplier (ΚΕΡΔΟΥΣ)
 function applyFinalMultiplier(multiplier) {
+  if (intermediateResult === 0) {
+    document.getElementById("errorMessage").innerText = "Παρακαλώ εισάγετε πρώτα έναν αριθμό και υπολογίστε ΦΠΑ.";
+    return;
+  }
   finalResult = intermediateResult * multiplier;
   document.getElementById("finalResultNumber").innerText = finalResult.toFixed(2);
 }
+
+// Keyboard input functionality
+document.addEventListener('keydown', function(event) {
+  if (event.key >= '0' && event.key <= '9') {
+    appendNumber(event.key);
+  } else if (event.key === '.') {
+    appendDecimal();
+  } else if (event.key === '+' || event.key === '-' || event.key === '*' || event.key === '/') {
+    appendOperator(event.key);
+  } else if (event.key === 'Enter') {
+    calculate();
+  } else if (event.key === 'Backspace') {
+    clearDisplay();
+  }
+});
