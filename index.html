@@ -14,14 +14,14 @@
     <label for="inputNumber">Εισάγετε έναν αριθμό:</label>
     <input type="number" id="inputNumber" placeholder="Εισάγετε έναν αριθμό" required>
 
-    <!-- First set of buttons (Initial multipliers) -->
-    <h2>Πολλαπλασιάστε με:</h2>
+    <!-- First set of buttons (Initial multipliers for ΦΠΑ) -->
+    <h2>ΑΞΙΑ ΦΠΑ:</h2>
     <button onclick="applyInitialMultiplier(1.06)">× 1.06</button>
     <button onclick="applyInitialMultiplier(1.13)">× 1.13</button>
     <button onclick="applyInitialMultiplier(1.24)">× 1.24</button>
 
-    <!-- Second set of buttons (Final multipliers) -->
-    <h3>Στη συνέχεια πολλαπλασιάστε με:</h3>
+    <!-- Second set of buttons (Final multipliers for ΚΕΡΔΟΥΣ) -->
+    <h3>ΑΞΙΑ ΚΕΡΔΟΥΣ:</h3>
     <button onclick="applyFinalMultiplier(1.20)">× 1.20</button>
     <button onclick="applyFinalMultiplier(1.25)">× 1.25</button>
     <button onclick="applyFinalMultiplier(1.30)">× 1.30</button>
@@ -29,9 +29,13 @@
     <button onclick="applyFinalMultiplier(1.40)">× 1.40</button>
     <button onclick="applyFinalMultiplier(1.45)">× 1.45</button>
 
-    <!-- Display Result -->
-    <h2>Τελικό Αποτέλεσμα:</h2>
-    <p id="result" style="color: red; font-size: 2em;"></p>
+    <!-- Display Intermediate Result (ΤΙΜΗ ΜΕ ΦΠΑ) -->
+    <h2>ΤΙΜΗ ΜΕ ΦΠΑ:</h2>
+    <p id="intermediateResult" style="font-size: 1.5em;"></p>
+
+    <!-- Display Final Result (ΤΙΜΗ ΜΕ ΦΠΑ ΚΑΙ ΚΕΡΔΟΣ) -->
+    <h2>ΤΙΜΗ ΜΕ ΦΠΑ ΚΑΙ ΚΕΡΔΟΣ:</h2>
+    <p id="finalResult" style="color: red; font-size: 2em; font-weight: bold;"></p>
 
     <!-- Clear Button -->
     <button onclick="clearInput()">Εκκαθάριση</button>
