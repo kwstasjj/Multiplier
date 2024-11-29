@@ -35,10 +35,15 @@
 
     <!-- Display Final Result (ΤΙΜΗ ΜΕ ΦΠΑ ΚΑΙ ΚΕΡΔΟΣ) -->
     <h2>ΤΙΜΗ ΜΕ ΦΠΑ ΚΑΙ ΚΕΡΔΟΣ:</h2>
-    <p id="finalResult" style="color: red; font-size: 2em; font-weight: bold;"></p>
+    <p id="finalResult">
+      <span id="finalResultNumber" style="color: red; font-size: 2em; font-weight: bold;"></span>
+    </p>
 
     <!-- Clear Button -->
     <button onclick="clearInput()">Εκκαθάριση</button>
+
+    <!-- Error Message Display -->
+    <div id="errorMessage" style="color: red; font-size: 1.2em;"></div>
   </div>
 
   <script src="script.js"></script>
