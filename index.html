@@ -7,43 +7,72 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
+  <div class="calculator">
     <h1>Υπολογιστής Πολλαπλασιαστών</h1>
 
-    <!-- Input Field -->
-    <label for="inputNumber">Εισάγετε έναν αριθμό:</label>
-    <input type="number" id="inputNumber" placeholder="Εισάγετε έναν αριθμό" required>
+    <!-- Input Field (Display the current input number) -->
+    <div id="display" class="display">0</div>
 
-    <!-- First set of buttons (Initial multipliers for ΦΠΑ) -->
-    <h2>ΑΞΙΑ ΦΠΑ:</h2>
-    <button onclick="applyInitialMultiplier(1.06)">× 1.06</button>
-    <button onclick="applyInitialMultiplier(1.13)">× 1.13</button>
-    <button onclick="applyInitialMultiplier(1.24)">× 1.24</button>
+    <!-- Calculator Buttons -->
+    <div class="buttons">
+      <div class="row">
+        <button onclick="appendNumber('1')">1</button>
+        <button onclick="appendNumber('2')">2</button>
+        <button onclick="appendNumber('3')">3</button>
+        <button onclick="appendOperator('+')">+</button>
+      </div>
+      <div class="row">
+        <button onclick="appendNumber('4')">4</button>
+        <button onclick="appendNumber('5')">5</button>
+        <button onclick="appendNumber('6')">6</button>
+        <button onclick="appendOperator('-')">-</button>
+      </div>
+      <div class="row">
+        <button onclick="appendNumber('7')">7</button>
+        <button onclick="appendNumber('8')">8</button>
+        <button onclick="appendNumber('9')">9</button>
+        <button onclick="appendOperator('*')">×</button>
+      </div>
+      <div class="row">
+        <button onclick="appendNumber('0')">0</button>
+        <button onclick="appendDecimal()">.</button>
+        <button onclick="clearDisplay()">CLEAR</button>
+        <button onclick="appendOperator('/')">÷</button>
+      </div>
+    </div>
 
-    <!-- Second set of buttons (Final multipliers for ΚΕΡΔΟΥΣ) -->
-    <h3>ΑΞΙΑ ΚΕΡΔΟΥΣ:</h3>
-    <button onclick="applyFinalMultiplier(1.20)">× 1.20</button>
-    <button onclick="applyFinalMultiplier(1.25)">× 1.25</button>
-    <button onclick="applyFinalMultiplier(1.30)">× 1.30</button>
-    <button onclick="applyFinalMultiplier(1.35)">× 1.35</button>
-    <button onclick="applyFinalMultiplier(1.40)">× 1.40</button>
-    <button onclick="applyFinalMultiplier(1.45)">× 1.45</button>
+    <!-- ΦΠΑ Multipliers -->
+    <div class="multipliers">
+      <button onclick="applyInitialMultiplier(1.06)">× 1.06</button>
+      <button onclick="applyInitialMultiplier(1.13)">× 1.13</button>
+      <button onclick="applyInitialMultiplier(1.24)">× 1.24</button>
+    </div>
+    
+    <!-- Divider line below ΦΠΑ multipliers -->
+    <div class="divider"></div>
 
-    <!-- Display Intermediate Result (ΤΙΜΗ ΜΕ ΦΠΑ) -->
+    <!-- Additional ΦΠΑ Multipliers -->
+    <div class="multipliers">
+      <button onclick="applyFinalMultiplier(1.20)">× 1.20</button>
+      <button onclick="applyFinalMultiplier(1.25)">× 1.25</button>
+      <button onclick="applyFinalMultiplier(1.30)">× 1.30</button>
+    </div>
+
+    <!-- Additional ΚΕΡΔΟΥΣ Multipliers (moved below the first set) -->
+    <div class="multipliers">
+      <button onclick="applyFinalMultiplier(1.35)">× 1.35</button>
+      <button onclick="applyFinalMultiplier(1.40)">× 1.40</button>
+      <button onclick="applyFinalMultiplier(1.45)">× 1.45</button>
+    </div>
+
+    <!-- Results -->
     <h2>ΤΙΜΗ ΜΕ ΦΠΑ:</h2>
-    <p id="intermediateResult" style="font-size: 1.5em;"></p>
+    <p id="intermediateResult"></p>
 
-    <!-- Display Final Result (ΤΙΜΗ ΜΕ ΦΠΑ ΚΑΙ ΚΕΡΔΟΣ) -->
     <h2>ΤΙΜΗ ΜΕ ΦΠΑ ΚΑΙ ΚΕΡΔΟΣ:</h2>
-    <p id="finalResult">
-      <span id="finalResultNumber" style="color: red; font-size: 2em; font-weight: bold;"></span>
-    </p>
+    <p id="finalResult"><span id="finalResultNumber"></span></p>
 
-    <!-- Clear Button -->
-    <button onclick="clearInput()">Εκκαθάριση</button>
-
-    <!-- Error Message Display -->
-    <div id="errorMessage" style="color: red; font-size: 1.2em;"></div>
+    <div id="errorMessage" style="color: red;"></div>
   </div>
 
   <script src="script.js"></script>
