@@ -1,7 +1,6 @@
 let currentInput = '0'; // Store current input value
 let intermediateResult = 0; // Store intermediate result after ΦΠΑ
 let finalResult = 0; // Store final result after ΚΕΡΔΟΥΣ
-let operator = ''; // Store current operator for arithmetic operations
 
 // Function to append numbers to the display
 function appendNumber(number) {
@@ -29,45 +28,12 @@ function updateDisplay() {
 // Function to clear the display
 function clearDisplay() {
   currentInput = '0';
-  operator = '';
   intermediateResult = 0;
   finalResult = 0;
   updateDisplay();
   document.getElementById('intermediateResult').textContent = '';
   document.getElementById('finalResultNumber').textContent = '';
   document.getElementById('errorMessage').textContent = '';
-}
-
-// Function to handle arithmetic operators
-function appendOperator(op) {
-  if (operator === '') {
-    intermediateResult = parseFloat(currentInput);
-    currentInput = '0';
-  } else {
-    calculate();
-  }
-  operator = op;
-  document.getElementById('errorMessage').textContent = ''; // Clear any error messages
-}
-
-// Function to perform the calculation
-function calculate() {
-  if (operator === '+') {
-    intermediateResult += parseFloat(currentInput);
-  } else if (operator === '-') {
-    intermediateResult -= parseFloat(currentInput);
-  } else if (operator === '*') {
-    intermediateResult *= parseFloat(currentInput);
-  } else if (operator === '/') {
-    if (currentInput === '0') {
-      document.getElementById('errorMessage').textContent = 'Δεν μπορείς να διαιρέσεις με το 0!';
-      return;
-    }
-    intermediateResult /= parseFloat(currentInput);
-  }
-  currentInput = intermediateResult.toString();
-  updateDisplay();
-  operator = ''; // Reset operator after calculation
 }
 
 // Function to apply initial multiplier (ΦΠΑ)
@@ -78,7 +44,7 @@ function applyInitialMultiplier(multiplier) {
     return;
   }
   intermediateResult = inputValue * multiplier;
-  document.getElementById("intermediateResult").innerHTML = `ΤΙΜΗ ΜΕ ΦΠΑ: ${intermediateResult.toFixed(2)} <span style="color: green; font-weight: bold;">(${multiplier === 1.06 ? '6%' : multiplier === 1.13 ? '13%' : '24%'})</span>`;
+  document.getElementById("intermediateResult").innerText = intermediateResult.toFixed(2); // Update the result next to ΤΙΜΗ ΜΕ ΦΠΑ
 }
 
 // Function to apply final multiplier (ΚΕΡΔΟΥΣ)
@@ -89,5 +55,5 @@ function applyFinalMultiplier(multiplier) {
     return;
   }
   finalResult = intermediateResult * multiplier;
-  document.getElementById("finalResultNumber").innerText = finalResult.toFixed(2);
+  document.getElementById("finalResultNumber").innerText = finalResult.toFixed(2); // Update the final result next to ΤΙΜΗ ΜΕ ΦΠΑ ΚΑΙ ΚΕΡΔΟΣ
 }
