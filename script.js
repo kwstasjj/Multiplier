@@ -1,38 +1,42 @@
-let intermediateResult = 0; // Store intermediate result after applying the first multiplier
+// Variables to hold the intermediate result and the final result
+let intermediateResult = 0;
+let finalResult = 0;
 
-// Function to apply the first multiplier (1.06, 1.13, 1.24)
+// Function to apply the initial multiplier (1.06, 1.13, 1.24)
 function applyInitialMultiplier(multiplier) {
-  let inputValue = parseFloat(document.getElementById("inputNumber").value);
-
-  if (isNaN(inputValue) || inputValue <= 0) {
-    alert("Please enter a valid number.");
+  const inputValue = parseFloat(document.getElementById("inputNumber").value);
+  
+  if (isNaN(inputValue)) {
+    alert("Παρακαλώ εισάγετε έναν έγκυρο αριθμό.");
     return;
   }
 
-  // Apply the initial multiplier to the input value
+  // Calculate the intermediate result
   intermediateResult = inputValue * multiplier;
-
-  // Display the intermediate result after applying the initial multiplier
-  document.getElementById("result").textContent = `Intermediate Result: ${intermediateResult.toFixed(2)}`;
+  
+  // Update the intermediate result in the HTML
+  document.getElementById("intermediateResult").innerText = intermediateResult.toFixed(2);
 }
 
 // Function to apply the final multiplier (1.20, 1.25, 1.30, 1.35, 1.40, 1.45)
-function applyFinalMultiplier(finalMultiplier) {
+function applyFinalMultiplier(multiplier) {
   if (intermediateResult === 0) {
-    alert("Please apply an initial multiplier first (1.06, 1.13, or 1.24).");
+    alert("Παρακαλώ πρώτα επιλέξτε έναν αρχικό πολλαπλασιαστή.");
     return;
   }
 
-  // Multiply the intermediate result by the final multiplier
-  let finalResult = intermediateResult * finalMultiplier;
+  // Calculate the final result
+  finalResult = intermediateResult * multiplier;
 
-  // Display the final result
-  document.getElementById("result").textContent = `Final Result: ${finalResult.toFixed(2)}`;
+  // Update the final result in the HTML
+  document.getElementById("finalResult").innerText = finalResult.toFixed(2);
 }
 
-// Function to clear the input and reset the result
+// Clear the input and results
 function clearInput() {
   document.getElementById("inputNumber").value = '';
-  document.getElementById("result").textContent = '';
-  intermediateResult = 0; // Reset the intermediate result
+  document.getElementById("intermediateResult").innerText = '';
+  document.getElementById("finalResult").innerText = '';
+  intermediateResult = 0;
+  finalResult = 0;
 }
